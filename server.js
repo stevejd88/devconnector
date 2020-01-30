@@ -6,6 +6,9 @@ const app = express();
 // Connect Database
 connectDB();
 
+// INIT MIDDLEWARE
+app.use(express.json({ extended: false }));
+
 app.get("/", (req, res) => res.send("API Running"));
 
 // DEFINE ROUTES
