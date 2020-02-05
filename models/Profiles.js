@@ -72,7 +72,7 @@ const ProfileSchema = new mongoose.Schema({
       },
       from: {
         type: Date,
-        required: tru
+        required: true
       },
       to: {
         type: Date
@@ -109,4 +109,4 @@ const ProfileSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Profile = momgoose.model("profile", ProfileSchema);
+module.exports = Profile = mongoose.model("profile", ProfileSchema);
