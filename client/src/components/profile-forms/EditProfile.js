@@ -31,7 +31,7 @@ const EditProfile = ({
 
   useEffect(() => {
     if (!profile) getCurrentProfile();
-    if (!loading) {
+    if (!loading && profile) {
       const profileData = { ...initialState };
       for (const key in profile) {
         if (key in profileData) profileData[key] = profile[key];
@@ -58,10 +58,10 @@ const EditProfile = ({
     instagram
   } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData, history, true);
   };
@@ -246,7 +246,7 @@ EditProfile.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile
 });
 
